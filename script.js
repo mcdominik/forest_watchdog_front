@@ -86,7 +86,8 @@ window.onload = () => {
 const uploadZone = document.getElementById('upload-button');
 
 let file = null;
-const baseUrl = 'http://localhost:8000';
+const baseUrl = 'https://forestapi.bieda.it';
+
 
 const getCurrentMode = async () => {
   const response = await fetch(`${baseUrl}/getMyDevice`);
