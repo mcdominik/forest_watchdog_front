@@ -16,7 +16,7 @@
     top:30%;
     background-color: #ffffff;
     width: 30%;
-    min-width: 32.5em;
+    min-width: 30%;
     padding: 3.12em 1.87em;
     position: absolute;
     transform: translateX(-50%);
@@ -45,7 +45,7 @@
     color: #ffffff;
     font-size: 1.1em;
     text-align: center;
-    width: 16em;
+    width: 80%;
     padding: 1em 0;
     border-radius: 0.3em;
     margin: 0 auto 1em auto;
@@ -112,6 +112,7 @@
     vertical-align: middle;
     white-space: nowrap;
     width: 30%;
+    min-width: 100px;
   }
   
   .button-19:after {
@@ -142,3 +143,14 @@
   .button-19:disabled {
     cursor: auto;
   }
+
+@media screen and (max-width: 650px) {
+  body {
+    min-width: 300px;
+  }
+    .container {
+    left: 50%;
+    width: 70%;
+    top:15%
+    }
+}

@@ -5,6 +5,9 @@ let container = document.querySelector(".container");
 let error = document.getElementById("error");
 let imageDisplay = document.getElementById("image-display");
 
+
+//// handle drag & drop
+
 const fileHandler = (file, name, type) => {
   if (type.split("/")[0] !== "image") {
     //File Type Error
@@ -78,8 +81,9 @@ window.onload = () => {
 };
 
 
+//// handle file POST and prediction GET 
+
 const uploadZone = document.getElementById('upload-button');
-// const uploadZone = document.getElementById('fileUpload');
 
 let file = null;
 const baseUrl = 'http://localhost:8000';
@@ -101,7 +105,7 @@ const predict = async (file) => {
   const formData = new FormData();
   formData.append('file', file);
 
-  const response = await fetch('http://localhost:8000/predict', {
+  const response = await fetch(`${baseUrl}/predict`, {
     method: 'POST',
     body: formData
   });
@@ -122,7 +126,6 @@ const predict = async (file) => {
 
 }
 
-//add event listener to the button with id "predict" on click
 document.getElementById('predict').addEventListener('click', () => {
   predict(file);
 });
