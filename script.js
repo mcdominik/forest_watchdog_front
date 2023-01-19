@@ -87,7 +87,7 @@ const uploadZone = document.getElementById('upload-button');
 
 let file = null;
 // const baseUrl = 'http://localhost:8000';
-const baseUrl = "https://forestapi.bieda.it";
+const baseUrl = 'https://forestapi.bieda.it';
 
 
 const getCurrentMode = async () => {
