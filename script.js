@@ -7,11 +7,6 @@ let imageDisplay = document.getElementById("image-display");
 let predictButton = document.getElementById("predict");
 
 
-// spinner animation 
-predictButton.addEventListener("click", () => {
-  predictButton.innerHTML = '';
-  predictButton.classList.add("button-19--loading");
-});
 
 //// handle drag & drop
 const fileHandler = (file, name, type) => {
@@ -95,6 +90,14 @@ let file = null;
 const baseUrl = 'https://forestapi.bieda.it';
 
 
+// spinner animation 
+predictButton.addEventListener("click", () => {
+  if (file) {
+    predictButton.innerHTML = '';
+    predictButton.classList.add("button-19--loading");
+  }
+});
+
 const getCurrentMode = async () => {
   const response = await fetch(`${baseUrl}/getMyDevice`);
   const data = await response.json();
@@ -127,7 +130,7 @@ const predict = async (file) => {
   if (parsed.state == 'fire') {
     message = 'You should probably call the fire department!'
   }
-  else {
+  if (parsed.state == 'no fire') {
     message = 'Looks good, no fire'
   }
   document.getElementById('response').innerHTML = message;
