@@ -4,10 +4,16 @@ let fileName = document.getElementById("file-name");
 let container = document.querySelector(".container");
 let error = document.getElementById("error");
 let imageDisplay = document.getElementById("image-display");
+let predictButton = document.getElementById("predict");
 
+
+// spinner animation 
+predictButton.addEventListener("click", () => {
+  predictButton.innerHTML = '';
+  predictButton.classList.add("button-19--loading");
+});
 
 //// handle drag & drop
-
 const fileHandler = (file, name, type) => {
   if (type.split("/")[0] !== "image") {
     //File Type Error
@@ -27,7 +33,8 @@ const fileHandler = (file, name, type) => {
     imageDisplay.appendChild(imageContainer);
   };
 };
-//Upload Button
+
+
 uploadButton.addEventListener("change", () => {
   imageDisplay.innerHTML = "";
   Array.from(uploadButton.files).forEach((file) => {
@@ -82,7 +89,6 @@ window.onload = () => {
 
 
 //// handle file POST and prediction GET 
-
 const uploadZone = document.getElementById('upload-button');
 
 let file = null;
@@ -112,6 +118,8 @@ const predict = async (file) => {
   });
 
   const data = await response.json();
+
+  predictButton.classList.remove("red");
   console.log(data);
   let response_string = JSON.stringify(data)
   let parsed = JSON.parse(response_string);

@@ -113,9 +113,42 @@
     white-space: nowrap;
     width: 30%;
     min-width: 100px;
+    min-height: 50px;
+
+    position: relative
   }
   
-  .button-19:after {
+.red {
+  background-color: red;
+}
+
+  .button-19--loading::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 4px solid transparent;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: button-19-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-19-loading-spinner {
+  from {
+      transform: rotate(0turn);
+  }
+
+  to {
+      transform: rotate(1turn);
+  }
+}
+
+  /* .button-19:after {
     background-clip: padding-box;
     background-color: #02ea31;
     border: solid transparent;
@@ -128,7 +161,7 @@
     right: 0;
     top: 0;
     z-index: -1;
-  }
+  } */
   
   .button-19:main,
   .button-19:focus {
