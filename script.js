@@ -95,6 +95,7 @@ predictButton.addEventListener("click", () => {
   if (file != null) {
     predictButton.innerHTML = '';
     predictButton.classList.add("button-19--loading");
+    message = '';
   }
 });
 
