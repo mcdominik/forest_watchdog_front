@@ -92,7 +92,7 @@ const baseUrl = 'https://forestapi.bieda.it';
 
 // spinner animation 
 predictButton.addEventListener("click", () => {
-  if (file) {
+  if (file != null) {
     predictButton.innerHTML = '';
     predictButton.classList.add("button-19--loading");
   }
@@ -122,7 +122,7 @@ const predict = async (file) => {
 
   const data = await response.json();
 
-  predictButton.classList.remove("red");
+  predictButton.classList.remove("button-19--loading");
   console.log(data);
   let response_string = JSON.stringify(data)
   let parsed = JSON.parse(response_string);
