@@ -123,7 +123,7 @@ const predict = async (file) => {
   const data = await response.json();
 
   predictButton.classList.remove("button-19--loading");
-  predictButton.innerHTML = 'Predict';
+  document.getElementById('predict').innerHTML = 'Predict'
   console.log(data);
   let response_string = JSON.stringify(data)
   let parsed = JSON.parse(response_string);
