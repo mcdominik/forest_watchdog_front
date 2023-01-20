@@ -7,7 +7,6 @@ let imageDisplay = document.getElementById("image-display");
 let predictButton = document.getElementById("predict");
 
 
-
 //// handle drag & drop
 const fileHandler = (file, name, type) => {
   if (type.split("/")[0] !== "image") {
@@ -87,6 +86,7 @@ window.onload = () => {
 const uploadZone = document.getElementById('upload-button');
 
 let file = null;
+let message = ''
 const baseUrl = 'https://forestapi.bieda.it';
 
 
@@ -105,9 +105,9 @@ const getCurrentMode = async () => {
 }
 getCurrentMode();
 
-// console log file information when file is uploaded
 uploadZone.addEventListener('change', (e) => {
   file = e.target.files[0];
+  message = ''
 });
 
 
@@ -127,7 +127,6 @@ const predict = async (file) => {
   console.log(data);
   let response_string = JSON.stringify(data)
   let parsed = JSON.parse(response_string);
-  let message = ''
   if (parsed.state == 'fire') {
     message = 'You should probably call the fire department!'
   }
