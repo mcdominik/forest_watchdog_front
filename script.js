@@ -123,10 +123,11 @@ const predict = async (file) => {
   const data = await response.json();
 
   predictButton.classList.remove("button-19--loading");
+  predictButton.innerHTML = 'Predict';
   console.log(data);
   let response_string = JSON.stringify(data)
   let parsed = JSON.parse(response_string);
-  let message
+  let message = ''
   if (parsed.state == 'fire') {
     message = 'You should probably call the fire department!'
   }
