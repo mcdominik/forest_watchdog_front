@@ -115,7 +115,6 @@ const predict = async (file) => {
   console.log(data);
   let response_string = JSON.stringify(data)
   let parsed = JSON.parse(response_string);
-  console.log(parsed.odp)
   let message
   if (parsed.state == 'fire') {
     message = 'You should probably call the fire department!'
