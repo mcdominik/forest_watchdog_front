@@ -5,7 +5,7 @@
     font-family: "Poppins", sans-serif;
   }
   body {
-    background-image: url("forest2.jpg");
+    background-image: url("static/background.jpg");
     background-repeat: repeat;
     justify-content: center;
   }
